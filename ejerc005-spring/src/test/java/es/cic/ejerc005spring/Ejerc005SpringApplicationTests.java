@@ -1,10 +1,10 @@
-package es.cic.ejemploWeb;
+package es.cic.ejerc005spring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EjemploWebApplicationTests {
+class Ejerc005SpringApplicationTests {
 
 	@Test
 	void contextLoads() {
