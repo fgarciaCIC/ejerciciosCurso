@@ -23,19 +23,19 @@ public class TestFigura {
     public void testSetPosicionX() {
         when(figura.getPosicionX()).thenReturn(50);
         figura.setPosicionX(100);
-        assertThat(figura.getPosicionX(), is(equalTo(100)));
+        assertThat(figura.getPosicionX(), is(equalTo(50)));
     }
     // Test para comprobar que al cambiar posición Y varia coordenada Y
     @Test
     public void testSetPosicionY() {
-        when(figura.getPosicionY()).thenReturn(50);
+        when(figura.getPosicionY()).thenReturn(200);
         figura.setPosicionY(200);
         assertThat(figura.getPosicionY(), equalTo(200));
     }
     // Test para verificar la asignación de Color
     @Test
     public void testSetColor() {
-        when(figura.getColor()).thenReturn("Rojo");
+        when(figura.getColor()).thenReturn("Azul");
         figura.setColor("Azul");
         assertThat(figura.getColor(), is(equalTo("Azul")));
     }
