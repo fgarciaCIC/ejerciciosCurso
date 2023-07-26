@@ -1,13 +1,15 @@
-package es.cic.ejerc005spring;
+package es.cic.ejerc005;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Ejerc005SpringApplication {
+public class Ejerc005Application {
 
+	// Esto es un comentario
+	
 	public static void main(String[] args) {
-		SpringApplication.run(Ejerc005SpringApplication.class, args);
+		SpringApplication.run(Ejerc005Application.class, args);
 	}
 
 }
