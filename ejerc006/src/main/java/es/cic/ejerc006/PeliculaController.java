@@ -6,32 +6,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/lienzo")
-public class LienzoController {
+@RequestMapping("/pelicula")
+public class PeliculaController {
 	
 	@Autowired
-	private LienzoService lienzoService;
+	private PeliculaService peliculaService;
 
-	public LienzoController() {
+	public PeliculaController() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@GetMapping
-	public Lienzo get() {
-		Lienzo lienzo = new Lienzo();
+	public Pelicula get() {
+		Pelicula pelicula = new Pelicula();
 		
-		Figura figura1 = new Figura(1, "cuadrado");
-		figura1.setLienzo(lienzo);
-		lienzo.getFiguras().add(figura1);
+		//Figura figura1 = new Figura(1, "cuadrado");
+	//	figura1.setLienzo(lienzo);
+		//lienzo.getFiguras().add(figura1);
 		
-		lienzo.getFiguras().add(new Figura(2, "circulo"));
-		lienzo.getFiguras().add(new Figura(3, "triangulo"));
-		return lienzo;
+		//lienzo.getFiguras().add(new Figura(2, "circulo"));
+		//lienzo.getFiguras().add(new Figura(3, "triangulo"));
+		return pelicula;
 	}
 
 	@GetMapping(path="/ping")
 	public String ping() {
-		this.lienzoService.mover();
+		this.peliculaService.mover();
 		return "Hola mundo";
 	}
 
