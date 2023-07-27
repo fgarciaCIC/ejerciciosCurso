@@ -8,7 +8,7 @@ public class Sesion {
 	    private Sala sala;
 	    private Pelicula pelicula;
 
-	    // Constructor, si lo deseas
+	   
 
 	    // Getter y Setter para id
 	    public Long getId() {

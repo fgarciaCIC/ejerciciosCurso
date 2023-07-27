@@ -14,8 +14,8 @@ public class Pelicula {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long nextId) {
+        this.id = nextId;
     }
 
     // Getter y Setter para titulo
