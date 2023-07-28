@@ -13,15 +13,29 @@ public class SalaController {
 		@Autowired
 		private SalaService salaService;
 
-		public SalaController() {
-			// TODO Auto-generated constructor stub
-		}
+		@GetMapping("/obtenerSalas")
+	    public List<Sala> obtenerSalas() {
+	        return salaService.obtenerSalas();
+	    }
 
-		@GetMapping
-		public Sala get() {
-			Sala sala = new Sala();		
-	
-			return sala;
-		}
+	    @GetMapping("/obtenerSalaPorId/{id}")
+	    public List<Sala> obtenerSalaPorId(@PathVariable Long id) {
+	        return salaService.obtenerSalaPorId(id);
+	    }
+
+	    @PostMapping("/crearSala")
+	    public Sala crearSala(@RequestBody Sala sala) {
+	        return salaService.crearSala(sala);
+	    }
+
+	    @PutMapping("/actualizarSala/{id}")
+	    public Sala actualizarSala(@PathVariable Long id, @RequestBody Sala salaActualizada) {
+	        return salaService.actualizarSala(id, salaActualizada);
+	    }
+
+	    @DeleteMapping("/borrarSala/{id}")
+	    public void borrarSala(@PathVariable Long id) {
+	        salaService.borrarSala(id);
+	    }
 
 }
