@@ -15,12 +15,14 @@ public class AlmacenDatos {
 	private List<Pelicula> peliculas;
     private List<Taquillero> taquilleros;
     private List<Sala>salas;
+    private List<Sesion> sesiones;
 
     public AlmacenDatos() {
         ventasEntradas = new ArrayList<>();
         peliculas = new ArrayList<>();
         taquilleros = new ArrayList<>();
         salas = new ArrayList<>();
+        sesiones = new ArrayList<>();
     }
     
     // Métodos CRUD a nivel de Repositorio de Venta de Entradas
@@ -53,41 +55,39 @@ public class AlmacenDatos {
     
  // Métodos para crud Salas
     
-    public List<Sala> getSalas() {
+    public List<Sala> obtenerSalas() {
         return salas;
     }
 
-    public List<Sala> obtenerSalaPorId(Long id) {
-        List<Sala> salasEncontradas = new ArrayList<>();
+    public Sala obtenerSalaPorId(Long id) {
+        Sala salasEncontrada = new Sala();
         for (Sala sala : salas) {
             if (sala.getId().equals(id)) {
-                salasEncontradas.add(sala);
+                return(sala);
             }
         }
-        return salasEncontradas;
+        return null;
     }
 
-    public Sala agregarSala(Sala sala) {
+    public Sala crearSala(Sala sala) {
         salas.add(sala);
         return sala;
     }
 
-    public Sala actualizarSala(Long id, Sala salaActualizada) {
-        List<Sala> salasEncontradas = obtenerSalaPorId(id);
-        if (!salasEncontradas.isEmpty()) {
-            Sala salaExistente = salasEncontradas.get(0);
-            // Actualizar los atributos de la sala existente con los valores de la sala actualizada
-            salaExistente.setNombre(salaActualizada.getNombre());
-            salaExistente.setAforo(salaActualizada.getAforo());
-            return salaExistente;
-        } else {
-            return null; // Devolver null si no se encontró la sala con el ID proporcionado
+    public void actualizarSala(Sala salaActualizada) {
+      for (int i = 0; i < peliculas.size(); i++) {
+        Sala sala = salas.get(i);
+        if (sala.getId().equals(salaActualizada.getId())) {
+            // Se encontró la sala con el ID proporcionado, actualizar sus datos
+            sala.setNombreSala(salaActualizada.getNombreSala());
+            sala.setAforo(salaActualizada.getAforo());   
         }
+      }
     }
-    public boolean eliminarSala(Long id) {
-        List<Sala> salasEncontradas = obtenerSalaPorId(id);
-        if (!salasEncontradas.isEmpty()) {
-            salas.removeAll(salasEncontradas);
+    public boolean borrarSala(Long id) {
+        Sala salaEncontrada = obtenerSalaPorId(id);
+        if (salaEncontrada!=null) {
+            salas.remove(salaEncontrada);
             return true;
         } else {
             return false; // Devolver false si no se encontró la sala con el ID proporcionado
@@ -144,6 +144,69 @@ public class AlmacenDatos {
         // Encuentra la película por su ID y elimínala
         peliculas.removeIf(pelicula -> pelicula.getId().equals(idPelicula));
     }
+    
+ // Métodos para Sesion
+    
+    public List<Sesion> obtenerSesiones() {
+        return sesiones;
+    }
+    
+    public List<Sesion> obtenerSesionPorId(Long identificador) {
+        ArrayList<Sesion> resultado = new ArrayList<Sesion>();
+       
+        for (Sesion sesion : sesiones) {        	
+            if (sesion.getId().equals(identificador)) {
+            	
+                resultado.add(sesion);
+            }
+        }       
+        return resultado;
+    }
+
+    
+    public Sesion crearSesion(Sesion sesion) {
+    	
+    	// leer aforo de la sala
+     	 Sala sala= this.obtenerSalaPorId(sesion.getSala().getId());
+     	 // comprobar que se puede resevar sesion     	    
+    	 if (sala.getAforo()>0) {
+    		  // restar del aforo de la sala correspondiente 1
+             sala.setAforo(sala.getAforo()-1);
+             this.actualizarSala(sala);          
+    	 }
+    	 else
+    		// emitir aviso de foro lleno
+    	
+    	
+    	 
+           // lo mismo con pelicula
+    		 
+    		 
+    		 
+         // si todo ok guardar sesion
+         sesiones.add(sesion);
+        return sesion;
+    }
+    
+
+    public void  actualizarSesion(Sesion sesionActualizada) {
+        for (int i = 0; i < sesiones.size(); i++) {
+            Sesion sesion = sesiones.get(i);
+            if (sesion.getId().equals(sesionActualizada.getId())) {
+                // Se encontró la sesion con el ID proporcionado, actualizar sus datos
+                sesion.setFechaHora(sesionActualizada.getFechaHora());
+               
+               
+            }
+        }
+
+    }
+
+    public void borrarSesion(Long idSesion) {
+        // Encuentra la sesion por su ID y elimínala
+        sesiones.removeIf(sesion -> sesion.getId().equals(idSesion));
+    }
+    
     
     
     

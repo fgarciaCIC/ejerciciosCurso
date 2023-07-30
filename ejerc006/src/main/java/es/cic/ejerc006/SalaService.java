@@ -11,26 +11,25 @@ public class SalaService {
 		@Autowired
 		 private  AlmacenDatos almacenDatos;
 
-
+		 public Sala crearSala(Sala sala) {
+		        almacenDatos.crearSala(sala);	       
+		        return sala;
+		    }
 	    public List<Sala> obtenerSalas() {
-	        return almacenDatos.getSalas();
+	        return almacenDatos.obtenerSalas();
 	    }
 
-	    public List<Sala> obtenerSalaPorId(Long id) {
+	    public Sala obtenerSalaPorId(Long id) {
 	        return almacenDatos.obtenerSalaPorId(id);
 	    }
-
-	    public Sala crearSala(Sala sala) {
-	        almacenDatos.getSalas().add(sala);
-	        return sala;
+	   
+	    public Sala actualizarSala(Sala salaActualizada) {
+	         almacenDatos.actualizarSala(salaActualizada);
+	         return salaActualizada;
 	    }
 
-	    public Sala actualizarSala(Long id, Sala salaActualizada) {
-	        return almacenDatos.actualizarSala(id, salaActualizada);
-	    }
-
-	    public void borrarSala(Long id) {
-	        almacenDatos.eliminarSala(id);
+	    public void borrarSala(Long idSala) {
+	        almacenDatos.borrarSala(idSala);
 	    }
 }
 

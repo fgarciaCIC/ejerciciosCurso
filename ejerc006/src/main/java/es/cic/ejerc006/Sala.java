@@ -1,8 +1,11 @@
 package es.cic.ejerc006;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Sala {
 	 private Long id;
-	    private String nombre;
+	    private String nombreSala;
 	    private int aforo;
 
 	    // Constructor, si lo deseas
@@ -17,12 +20,12 @@ public class Sala {
 	    }
 
 	    // Getter y Setter para nombre
-	    public String getNombre() {
-	        return nombre;
+	    public String getNombreSala() {
+	        return nombreSala;
 	    }
 
-	    public void setNombre(String nombre) {
-	        this.nombre = nombre;
+	    public void setNombreSala(String nombreSala) {
+	        this.nombreSala= nombreSala;
 	    }
 
 	    // Getter y Setter para aforo

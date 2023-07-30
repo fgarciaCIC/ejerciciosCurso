@@ -2,11 +2,22 @@ package es.cic.ejerc006;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+
+@Entity
 public class Sesion {
 	 private Long id;
-	    private LocalDateTime fechahora;
-	    private Sala sala;
+	    private LocalDateTime fechaHora;
+	    
+	    @ManyToOne
+	    @JoinColumn(name = "pelicula_id", referencedColumnName = "id") 
 	    private Pelicula pelicula;
+	    @ManyToOne
+	   @JoinColumn(name = "sala_id", referencedColumnName = "id")
+	    private Sala sala;
 
 	   
 
@@ -21,11 +32,11 @@ public class Sesion {
 
 	    // Getter y Setter para hora
 	    public LocalDateTime getFechaHora() {
-	        return fechahora;
+	        return fechaHora;
 	    }
 
-	    public void setFechaHora(LocalDateTime fechahora) {
-	        this.fechahora = fechahora;
+	    public void setFechaHora(LocalDateTime fechaHora) {
+	        this.fechaHora = fechaHora;
 	    }
 
 	    // Getter y Setter para sala
@@ -42,7 +53,7 @@ public class Sesion {
 	        return pelicula;
 	    }
 
-	    public void setPelicula(Pelicula pelicula) {
+	    public void setPelicula(Pelicula peliculaId) {
 	        this.pelicula = pelicula;
 	    }
 
