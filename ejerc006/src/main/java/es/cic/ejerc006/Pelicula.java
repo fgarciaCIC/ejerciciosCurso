@@ -3,11 +3,13 @@ package es.cic.ejerc006;
 import javax.persistence.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class Pelicula {
    
+//	@JsonIgnore
     private Long id;
     private String titulo;
     private String genero;
@@ -46,8 +48,8 @@ public class Pelicula {
 		return duracion;
 	}
 
-	public void setDuracion(Long duracion) {
-		this.duracion = duracion;
+	public void setDuracion(long i) {
+		this.duracion = i;
 	}
 
 	public String getReparto() {

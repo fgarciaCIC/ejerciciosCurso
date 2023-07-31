@@ -40,6 +40,8 @@ public class AlmacenDatos {
                 ventaEntrada.setDescuento(ventaEntradaModificada.getDescuento());
                 ventaEntrada.setTotalVenta(ventaEntradaModificada.getTotalVenta());
                 ventaEntrada.setSesion(ventaEntradaModificada.getSesion());
+                ventaEntrada.setTaquillero(ventaEntradaModificada.getTaquillero());
+                
                 return ventaEntrada;
            
             }
@@ -257,5 +259,7 @@ public class AlmacenDatos {
         }
         return null;
     }
+    
+    
 
 }

@@ -1,7 +1,8 @@
 package es.cic.ejerc006;
 
+import javax.persistence.Entity;
 
-
+@Entity
 public class Taquillero {
     private Long id;
     private String nombre;

@@ -1,5 +1,8 @@
 package es.cic.ejerc006;
 
+import javax.persistence.Entity;
+
+@Entity
 public class VentaEntrada {
 	  private Long id;
 	    private int cantidad;
@@ -7,10 +10,19 @@ public class VentaEntrada {
 	    private double descuento;	    
 	    private double totalVenta;	 
 		private Sesion sesion;
+		private Taquillero taquillero;
 		
 	   
 	    
-	    // Getter y Setter para id
+	    public Taquillero getTaquillero() {
+			return taquillero;
+		}
+
+		public void setTaquillero(Taquillero taquillero) {
+			this.taquillero = taquillero;
+		}
+
+		// Getter y Setter para id
 	    public Long getId() {
 	        return id;
 	    }
