@@ -22,7 +22,7 @@ public class PeliculaService {
 	        return almacenDatos.obtenerPeliculas();
 	    }
 
-	    public List<Pelicula>  obtenerPeliculaPorId(Long idPelicula) {
+	    public Pelicula obtenerPeliculaPorId(Long idPelicula) {
 	    	 return almacenDatos.obtenerPeliculaPorId(idPelicula);
 	         
 	    }

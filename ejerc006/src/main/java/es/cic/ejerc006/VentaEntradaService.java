@@ -12,31 +12,25 @@ public class VentaEntradaService {
 	@Autowired
     private AlmacenDatos almacenDatos;
 
-    public VentaEntrada realizarVenta(VentaEntrada ventaEntrada) {
-        int cantidadEntradas = ventaEntrada.getCantidad();
+	 public VentaEntrada crearVentaEntrada(VentaEntrada ventaEntrada) {
+	        return almacenDatos.crearVentaEntrada(ventaEntrada);
+	    }
 
-        // Calcular el precio total
-        double precioUnitario = 5.0; // Precio unitario de cada entrada
-        double precioTotal = precioUnitario * cantidadEntradas;
+	    public List<VentaEntrada> obtenerVentasEntradas() {
+	        return almacenDatos.obtenerVentasEntradas();
+	    }
 
-        // Aplicar descuento del 10% si son más de 5 entradas
-        if (cantidadEntradas > 5) {
-            double descuento = precioTotal * 0.1;
-            precioTotal -= descuento;
-        }
+	    public VentaEntrada obtenerVentaPorId(Long id) {
+	        return almacenDatos.obtenerVentaPorId(id);
+	    }
 
-        // Establecer el precio total en la venta de entrada
-        ventaEntrada.setTotalVenta(precioTotal);
+	    public VentaEntrada actualizarVentaEntrada(VentaEntrada ventaActualizada) {
+	        return almacenDatos.actualizarVentaEntrada(ventaActualizada);
+	    }
 
-        // Guardar la venta de entrada en el AlmacenDatos
-        almacenDatos.agregarVentaEntrada(ventaEntrada);
-
-        return ventaEntrada;
-    }
-
-    public List<VentaEntrada> obtenerVentasEntradas() {
-        return almacenDatos.obtenerVentasEntradas();
-    }
+	    public void borrarVentaEntrada(Long id) {
+	        almacenDatos.borrarVentaEntrada(id);
+	    }
 }
 	
 	

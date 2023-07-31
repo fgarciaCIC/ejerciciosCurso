@@ -25,7 +25,7 @@ public class PeliculaController {
     }
 
 	@GetMapping(path="/obtenerPeliculaPorId/{id}")		
-    public  List<Pelicula>  obtenerPeliculaPorId(@PathVariable Long id) {	
+    public  Pelicula  obtenerPeliculaPorId(@PathVariable Long id) {	
 		 return peliculaService.obtenerPeliculaPorId(id);
     }
     

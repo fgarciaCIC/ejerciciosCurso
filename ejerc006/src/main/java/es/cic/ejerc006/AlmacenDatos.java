@@ -26,11 +26,12 @@ public class AlmacenDatos {
     }
     
     // Métodos CRUD a nivel de Repositorio de Venta de Entradas
-    public void agregarVentaEntrada(VentaEntrada ventaEntrada) {
+    public VentaEntrada crearVentaEntrada(VentaEntrada ventaEntrada) {
         ventasEntradas.add(ventaEntrada);
+        return ventaEntrada;
     }
 
-    public void modificarVentaEntrada(VentaEntrada ventaEntradaModificada) {
+    public VentaEntrada actualizarVentaEntrada(VentaEntrada ventaEntradaModificada) {
         // Encuentra la venta de entrada por su ID y actualiza sus datos
         for (VentaEntrada ventaEntrada : ventasEntradas) {
             if (ventaEntrada.getId().equals(ventaEntradaModificada.getId())) {
@@ -39,18 +40,29 @@ public class AlmacenDatos {
                 ventaEntrada.setDescuento(ventaEntradaModificada.getDescuento());
                 ventaEntrada.setTotalVenta(ventaEntradaModificada.getTotalVenta());
                 ventaEntrada.setSesion(ventaEntradaModificada.getSesion());
-                break;
+                return ventaEntrada;
+           
             }
         }
+        return null;
     }
     
-    public void eliminarVentaEntrada(Long idVentaEntrada) {
+    public void borrarVentaEntrada(Long idVentaEntrada) {
         // Encuentra la venta de entrada por su ID y elimínala
         ventasEntradas.removeIf(ventaEntrada -> ventaEntrada.getId().equals(idVentaEntrada));
     }
     
     public List<VentaEntrada> obtenerVentasEntradas() {
         return ventasEntradas;
+    }
+    
+    public VentaEntrada obtenerVentaPorId(Long id) {
+        for (VentaEntrada ventaEntrada : ventasEntradas) {
+            if (ventaEntrada.getId().equals(id)) {
+                return ventaEntrada;
+            }
+        }
+        return null;
     }
     
  // Métodos para crud Salas
@@ -100,13 +112,13 @@ public class AlmacenDatos {
         return peliculas;
     }
     
-    public List<Pelicula> obtenerPeliculaPorId(Long identificador) {
-        ArrayList<Pelicula> resultado = new ArrayList<Pelicula>();
+    public Pelicula obtenerPeliculaPorId(Long identificador) {
+        Pelicula resultado = new Pelicula();
        
         for (Pelicula pelicula : peliculas) {        	
             if (pelicula.getId().equals(identificador)) {
             	
-                resultado.add(pelicula);
+                return pelicula;
             }
         }
 
@@ -167,20 +179,17 @@ public class AlmacenDatos {
     public Sesion crearSesion(Sesion sesion) {
     	
     	// leer aforo de la sala
-     	 Sala sala= this.obtenerSalaPorId(sesion.getSala().getId());
+     //	 Sala sala= this.obtenerSalaPorId(sesion.getSala().getId());
      	 // comprobar que se puede resevar sesion     	    
-    	 if (sala.getAforo()>0) {
+    	// if (sala.getAforo()>0) {
     		  // restar del aforo de la sala correspondiente 1
-             sala.setAforo(sala.getAforo()-1);
-             this.actualizarSala(sala);          
-    	 }
-    	 else
+       //      sala.setAforo(sala.getAforo()-1);
+          //   this.actualizarSala(sala);          
+    	// }
+    	// else
     		// emitir aviso de foro lleno
     	
-    	
-    	 
-           // lo mismo con pelicula
-    		 
+    	   		 
     		 
     		 
          // si todo ok guardar sesion
@@ -211,31 +220,42 @@ public class AlmacenDatos {
     
     
     // Métodos para Taquillero
-    public void agregarTaquillero(Taquillero taquillero) {
-        taquilleros.add(taquillero);       
+    public Taquillero crearTaquillero(Taquillero taquillero) {
+        taquilleros.add(taquillero);   
+        return taquillero;
         
     }
     
-    public void modificarTaquillero(Taquillero taquilleroModificado) {
+    public Taquillero actualizarTaquillero(Taquillero taquilleroModificado) {
         // Encuentra el taquillero por su ID y actualiza sus datos
         for (Taquillero taquillero : taquilleros) {
             if (taquillero.getId().equals(taquilleroModificado.getId())) {
                 taquillero.setNombre(taquilleroModificado.getNombre());
                 taquillero.setApellido(taquilleroModificado.getApellido());
                 
-                break;
+                return taquilleroModificado;
             }
         }
+        return null;
     }
 
-    public void eliminarTaquillero(Long idTaquillero) {
+    public void borrarTaquillero(Long idTaquillero) {
         // Encuentra el taquillero por su ID y elimínalo
         taquilleros.removeIf(taquillero -> taquillero.getId().equals(idTaquillero));
     }
     
 
-    public List<Taquillero> obtenerTodosLosTaquilleros() {
+    public List<Taquillero> obtenerTaquilleros() {
         return taquilleros;
+    }
+    
+    public Taquillero obtenerTaquilleroPorId(Long id) {
+        for (Taquillero taquillero : taquilleros) {
+            if (taquillero.getId().equals(id)) {
+                return taquillero;
+            }
+        }
+        return null;
     }
 
 }

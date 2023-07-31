@@ -16,7 +16,7 @@ public class Sesion {
 	    @JoinColumn(name = "pelicula_id", referencedColumnName = "id") 
 	    private Pelicula pelicula;
 	    @ManyToOne
-	   @JoinColumn(name = "sala_id", referencedColumnName = "id")
+	    @JoinColumn(name = "sala_id", referencedColumnName = "id")
 	    private Sala sala;
 
 	   
