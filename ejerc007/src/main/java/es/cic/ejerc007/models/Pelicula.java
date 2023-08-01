@@ -1,8 +1,6 @@
-package es.cic.ejerc007;
+package es.cic.ejerc007.models;
 
-import javax.persistence.Entity;
-
-@Entity
+//@Entity
 public class Pelicula {
    
 //	@JsonIgnore

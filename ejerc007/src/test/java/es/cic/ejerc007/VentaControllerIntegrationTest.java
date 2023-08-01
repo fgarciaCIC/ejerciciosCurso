@@ -9,7 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import es.cic.ejerc007.AlmacenDatos;
-import es.cic.ejerc007.VentaEntradaService;
+import es.cic.ejerc007.services.VentaEntradaService;
 
 public class VentaControllerIntegrationTest {
 

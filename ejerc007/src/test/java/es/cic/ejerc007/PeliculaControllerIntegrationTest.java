@@ -10,39 +10,42 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import es.cic.ejerc007.AlmacenDatos;
-import es.cic.ejerc007.Pelicula;
-import es.cic.ejerc007.PeliculaController;
-import es.cic.ejerc007.PeliculaService;
+import es.cic.ejerc007.controllers.PeliculaController;
+import es.cic.ejerc007.models.Pelicula;
+import es.cic.ejerc007.services.PeliculaService;
 
 //import es.cic.ejerc006.PeliculaController;
 //import es.cic.ejerc006.PeliculaService;
 
 //@WebMvcTest({PeliculaController.class, PeliculaService.class})
+//@AutoConfigureMockMvc
 @SpringBootTest
 public class PeliculaControllerIntegrationTest {
     
-    @Autowired
+	@Mock
     private MockMvc mockMvc;
     
 
     @Mock
     private PeliculaService peliculaService;
     
-    @InjectMocks
+    @Mock
     private PeliculaController peliculaController;
     
-    @InjectMocks
+    @Mock
     private AlmacenDatos almacenDatos;
 
     @Test
     public void testCrearPelicula() {
         
     
+    	
         Pelicula pelicula = new Pelicula();
         pelicula.setId(8L);
         pelicula.setTitulo("Avengers Endgame");

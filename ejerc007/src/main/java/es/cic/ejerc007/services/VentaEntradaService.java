@@ -1,4 +1,4 @@
-package es.cic.ejerc007;
+package es.cic.ejerc007.services;
 
 
 import java.time.LocalDate;
@@ -7,6 +7,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import es.cic.ejerc007.AlmacenDatos;
+import es.cic.ejerc007.models.Sesion;
+import es.cic.ejerc007.models.VentaEntrada;
 
 @Service
 public class VentaEntradaService {

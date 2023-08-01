@@ -1,8 +1,8 @@
-package es.cic.ejerc007;
+package es.cic.ejerc007.models;
 
 import javax.persistence.Entity;
 
-@Entity
+//@Entity
 public class VentaEntrada {
 	  private Long id;
 	    private int cantidad;

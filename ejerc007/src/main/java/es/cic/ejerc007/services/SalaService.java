@@ -1,9 +1,12 @@
-package es.cic.ejerc007;
+package es.cic.ejerc007.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import es.cic.ejerc007.AlmacenDatos;
+import es.cic.ejerc007.models.Sala;
 
 @Service
 public class SalaService {

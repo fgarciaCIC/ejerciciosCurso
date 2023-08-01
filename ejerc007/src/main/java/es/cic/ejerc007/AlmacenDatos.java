@@ -3,11 +3,18 @@ package es.cic.ejerc007;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+import es.cic.ejerc007.models.Pelicula;
+import es.cic.ejerc007.models.Sala;
+import es.cic.ejerc007.models.Sesion;
+import es.cic.ejerc007.models.Taquillero;
+import es.cic.ejerc007.models.VentaEntrada;
+
+@Repository
 public class AlmacenDatos {
 	
-	// Repositorio de datos como datos en memoria. 
+	// Repositorio de datos como datos en memoria. (Models)
 	// Se representan las Entidades que serían como tablas de una BBDD
 	private List<VentaEntrada> ventasEntradas;
 	private List<Pelicula> peliculas;

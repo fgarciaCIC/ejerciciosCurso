@@ -1,4 +1,4 @@
-package es.cic.ejerc007;
+package es.cic.ejerc007.models;
 
 import java.time.LocalDateTime;
 
@@ -7,7 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 
-@Entity
+//@Entity
 public class Sesion {
 	 private Long id;
 	    private LocalDateTime fechaHora;
